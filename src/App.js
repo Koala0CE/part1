@@ -59,6 +59,10 @@ const App = () => {
   const [neutral, setneutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const total = good + bad + neutral;
+  const average = total / 3;
+  const percentage = (bad * 100) / total;
+
   const course = {
     name: "We want to hear your opinion!",
     parts: [
@@ -93,6 +97,9 @@ const App = () => {
       <p>Good {good}</p>
       <p>Neutral {neutral}</p>
       <p>Bad {bad}</p>
+      <p>All {good + neutral + bad}</p>
+      <p>Average {average} </p>
+      <p>Percentage {percentage} %</p>
     </div>
   );
 };
