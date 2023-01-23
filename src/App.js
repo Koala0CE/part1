@@ -48,6 +48,10 @@ const Part = (props) => {
   );
 };
 
+const Button = (props) => (
+  <button onClick={props.handleClick}>{props.text}</button>
+);
+
 const App = () => {
   // use state definitions
   // save clickd of each button to its own state
@@ -76,11 +80,19 @@ const App = () => {
     <div>
       <Header course={course.name} />
 
-      <Content parts={course.parts} />
+      <Button handleClick={() => setGood(good + 1)} text="good" />
+      <Button handleClick={() => setneutral(neutral + 1)} text="neutral" />
+      <Button handleClick={() => setBad(bad + 1)} text="bad" />
+
+      {/* <Content parts={course.parts} />
 
       <Part parts={course.part} />
 
-      <Total parts={course.parts} />
+      <Total parts={course.parts} /> */}
+      <h1>Statistics</h1>
+      <p>Good {good}</p>
+      <p>Neutral {neutral}</p>
+      <p>Bad {bad}</p>
     </div>
   );
 };
