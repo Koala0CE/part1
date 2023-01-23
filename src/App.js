@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 // Header takes care of rendering the name of the course
 const Header = (props) => {
@@ -48,9 +49,14 @@ const Part = (props) => {
 };
 
 const App = () => {
-  // const-definitions
+  // use state definitions
+  // save clickd of each button to its own state
+  const [good, setGood] = useState(0);
+  const [neutral, setneutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
   const course = {
-    name: "Half Stack application development",
+    name: "We want to hear your opinion!",
     parts: [
       {
         name: "Fundamentals of React ",
