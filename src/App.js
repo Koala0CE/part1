@@ -15,9 +15,9 @@ const Content = (props) => {
   console.log("Content" + props);
   return (
     <div>
-      <Parts part={props.parts[0].part + props.parts[0].exercise} />
-      <Parts part={props.parts[1].part + props.parts[1].exercise} />
-      <Parts part={props.parts[2].part + props.parts[2].exercise} />
+      <Part part={props.parts[0].part + props.parts[0].exercise} />
+      <Part part={props.parts[1].part + props.parts[1].exercise} />
+      <Part part={props.parts[2].part + props.parts[2].exercise} />
     </div>
   );
 };
@@ -32,8 +32,8 @@ const Total = (props) => {
   );
 };
 
-const Parts = (props) => {
-  console.log("Parts", props);
+const Part = (props) => {
+  console.log("Part", props);
   return (
     <div>
       <p>{props.part}</p>
