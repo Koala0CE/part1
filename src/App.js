@@ -6,6 +6,10 @@ const Header = (props) => {
   console.log("Header", props);
   return <h1>{props.course}</h1>;
 };
+const Statistics = (props) => {
+  console.log("Statistics", props);
+  return <p1>Goods {props.stats}</p1>;
+};
 
 // Content renders the parts and their number of exercises
 const Content = (props) => {
@@ -17,33 +21,32 @@ const Content = (props) => {
           <Part part={onePatt} />
         ))}
       </p> */}
-      <Part part={props.parts[0].name + props.parts[0].exercises} />
-      <Part part={props.parts[1].name + props.parts[1].exercises} />
-      <Part part={props.parts[2].name + props.parts[2].exercises} />
+      {/* <Part part={props.good} />
+      <Part part={props.neutral} />
+      <Part part={props.bad} /> */}
+      {/* <Part part={props.parts[1].name + props.parts[1].exercises} />
+      <Part part={props.parts[2].name + props.parts[2].exercises} /> */}
     </div>
   );
 };
 
-const Total = (props) => {
-  console.log("Total", props);
-  // Total renders the total number of exercises
-  return (
-    <div>
-      <p>
-        Number of exercises{" "}
-        {props.parts[0].exercises +
-          props.parts[1].exercises +
-          props.parts[2].exercises}
-      </p>
-    </div>
-  );
-};
+// const Total = (props) => {
+//   console.log("Total", props);
+//   // Total renders the total number of exercises
+//   return (
+//     <div>
+//       <p>blabla {props.good + props.bad + props.neutral}</p>
+//     </div>
+//   );
+// };
 
 const Part = (props) => {
-  console.log("Part", props);
+  console.log("Stats", props);
   return (
     <div>
-      <p> {props.part}</p>
+      <p> Good {props.stats}</p>
+      <p> Neutral {props.stats}</p>
+      <p> Bad {props.stats}</p>
     </div>
   );
 };
@@ -88,13 +91,15 @@ const App = () => {
       <Button handleClick={() => setneutral(neutral + 1)} text="neutral" />
       <Button handleClick={() => setBad(bad + 1)} text="bad" />
 
-      {/* <Content parts={course.parts} />
+      <Content stats={good} />
 
-      <Part parts={course.part} />
+      <Part stats={good + bad + neutral} />
 
-      <Total parts={course.parts} /> */}
+      {/* <Total parts={course.parts} /> */}
+      <Statistics stats={good} />
+
       <h1>Statistics</h1>
-      <p>Good {good}</p>
+      <p>Good {(good, neutral, bad)}</p>
       <p>Neutral {neutral}</p>
       <p>Bad {bad}</p>
       <p>All {good + neutral + bad}</p>
