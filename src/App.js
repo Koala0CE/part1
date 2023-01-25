@@ -8,7 +8,12 @@ const Header = (props) => {
 };
 const Statistics = (props) => {
   console.log("Statistics", props);
-  return <p1>Goods {props.stats}</p1>;
+  return (
+    <div>
+      <p1>Good {props.stats}</p1>
+      {/* <p1>Neutral {props.stats}</p1> <p1>Bad {props.stats}</p1>{" "} */}
+    </div>
+  );
 };
 
 // Content renders the parts and their number of exercises
@@ -21,11 +26,14 @@ const Content = (props) => {
           <Part part={onePatt} />
         ))}
       </p> */}
-      {/* <Part part={props.good} />
-      <Part part={props.neutral} />
+      {/* <Part part={props.good} /> */}
+      {/* <Part part={props.neutral} />
       <Part part={props.bad} /> */}
       {/* <Part part={props.parts[1].name + props.parts[1].exercises} />
       <Part part={props.parts[2].name + props.parts[2].exercises} /> */}
+      <Statistics stats={props.good} />
+      <Statistics stats={props.neutral} />
+      <Statistics stats={props.bad} />
     </div>
   );
 };
@@ -86,25 +94,23 @@ const App = () => {
   return (
     <div>
       <Header course={course.name} />
-
       <Button handleClick={() => setGood(good + 1)} text="good" />
       <Button handleClick={() => setneutral(neutral + 1)} text="neutral" />
       <Button handleClick={() => setBad(bad + 1)} text="bad" />
 
-      <Content stats={good} />
-
-      <Part stats={good + bad + neutral} />
-
+      {/* <Part stats={good + bad + neutral} /> */}
       {/* <Total parts={course.parts} /> */}
-      <Statistics stats={good} />
-
+      {/* <Statistics stats={good + neutral + bad} /> */}
       <h1>Statistics</h1>
-      <p>Good {(good, neutral, bad)}</p>
+      <Statistics stats={good} />
+      <Statistics stats={neutral} />
+      <Statistics stats={bad} />
+      {/* <p>Good {(good, neutral, bad)}</p>
       <p>Neutral {neutral}</p>
       <p>Bad {bad}</p>
       <p>All {good + neutral + bad}</p>
       <p>Average {average} </p>
-      <p>Percentage {percentage} %</p>
+      <p>Percentage {percentage} %</p> */}
     </div>
   );
 };
